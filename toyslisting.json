@@ -23,7 +23,7 @@
         "description": "Description for Toy 3",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_3.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -32,7 +32,7 @@
         "description": "Description for Toy 4",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_4.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -41,7 +41,7 @@
         "description": "Description for Toy 5",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_5.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
     },
       {
@@ -50,7 +50,7 @@
         "description": "Description for Toy 6",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_6.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -59,7 +59,7 @@
         "description": "Description for Toy 7",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_7.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -68,7 +68,7 @@
         "description": "Description for Toy 9",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_8.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -77,7 +77,7 @@
         "description": "Description for Toy 9",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_9.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -86,7 +86,7 @@
         "description": "Description for Toy 10",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_10.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
     },
       {
@@ -95,7 +95,7 @@
         "description": "Description for Toy 11",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_11.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -104,7 +104,7 @@
         "description": "Description for Toy 12",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_12.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -113,7 +113,7 @@
         "description": "Description for Toy 13",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_13.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -122,7 +122,7 @@
         "description": "Description for Toy 14",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_14.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -131,7 +131,7 @@
         "description": "Description for Toy 15",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_15.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
     },
       {
@@ -140,7 +140,7 @@
         "description": "Description for Toy 16",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_16.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -149,7 +149,7 @@
         "description": "Description for Toy 17",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_17.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -158,7 +158,7 @@
         "description": "Description for Toy 18",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_18.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -167,7 +167,7 @@
         "description": "Description for Toy 19",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_19.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -176,7 +176,7 @@
         "description": "Description for Toy 20",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_20.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
     },
       {
@@ -185,7 +185,7 @@
         "description": "Description for Toy 21",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_21.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -194,7 +194,7 @@
         "description": "Description for Toy 22",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_22.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -203,7 +203,7 @@
         "description": "Description for Toy 23",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_23.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -212,7 +212,7 @@
         "description": "Description for Toy 24",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_24.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -221,7 +221,7 @@
         "description": "Description for Toy 25",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_25.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
     },
       {
@@ -230,7 +230,7 @@
         "description": "Description for Toy 26",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_26.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -239,7 +239,7 @@
         "description": "Description for Toy 27",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_27.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -248,7 +248,7 @@
         "description": "Description for Toy 28",
         "startingBid": 10.99,
         "currentBid": 15.99,
-        "image": "toy_image_1.jpg",
+        "image": "toy_image_28.jpg",
         "auctionEndTime": "2023-12-01T12:00:00"
     },
     {
@@ -257,7 +257,7 @@
         "description": "Description for Toy 29",
         "startingBid": 11.99,
         "currentBid": 16.99,
-        "image": "toy_image_2.jpg",
+        "image": "toy_image_29.jpg",
         "auctionEndTime": "2023-12-02T12:00:00"
     },
     {
@@ -266,7 +266,7 @@
         "description": "Description for Toy 30",
         "startingBid": 49.99,
         "currentBid": 54.99,
-        "image": "toy_image_40.jpg",
+        "image": "toy_image_30.jpg",
         "auctionEndTime": "2024-01-09T12:00:00"
-    },
+    }
 ]
