@@ -23,9 +23,52 @@
             </ul>
         </div>
     </nav>
+    <!-- Container for Toy Listings -->
+    <div class="container mt-4">
+        <div class="row" id="toyListings">
+            <!-- Toy listings will be generated and inserted here -->
+        </div>
+    </div>
     
-    <!-- Main Content of the Homepage Here -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to create HTML for each toy
+            function createToyHtml(toy) {
+                return `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="pics/${toy.image}" class="card-img-top" alt="${toy.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${toy.name}</h5>
+                                <p class="card-text">${toy.description}</p>
+                                <p>Starting Bid: $${toy.startingBid}</p>
+                                <p>Current Bid: $${toy.currentBid}</p>
+                                <p>Auction Ends: ${new Date(toy.auctionEndTime).toLocaleString()}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
     
+            // Select the container where the toys will be displayed
+            const container = document.getElementById('toyListings');
+    
+            // Fetch the JSON data from the same directory
+            fetch('toyslisting.json')
+                .then(response => response.json())
+                .then(toyData => {
+                    // Loop through the first 20 toys and add them to the container
+                    toyData.slice(0, 20).forEach(toy => {
+                        container.innerHTML += createToyHtml(toy);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading toy data:', error);
+                    container.innerHTML = '<p>Error loading toy listings.</p>';
+                });
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
