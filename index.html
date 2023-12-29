@@ -39,9 +39,42 @@
         </div>
     </footer>
     <script>
+        function randomFutureDate() {
+            let now = new Date();
+            let randomMinutes = Math.random() > 0.5 ? Math.floor(Math.random() * 30) : Math.floor(Math.random() * (60 * 24 * 30)); // Some dates within 30 minutes, others within 30 days
+            let futureDate = new Date(now.getTime() + randomMinutes * 60000);
+            return futureDate.toISOString();
+        }
+    
+        function updateCountdown() {
+            document.querySelectorAll('.countdown').forEach(element => {
+                let endTime = new Date(element.getAttribute('data-endtime'));
+                let now = new Date();
+                let distance = endTime - now;
+    
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+                if (distance < 0) {
+                    element.innerHTML = "EXPIRED";
+                }
+            });
+        }
+    
         document.addEventListener("DOMContentLoaded", function() {
-            // Function to create HTML for each toy
             function createToyHtml(toy) {
+                let randomDate;
+                if (localStorage.getItem(`endTime-${toy.id}`)) {
+                    randomDate = localStorage.getItem(`endTime-${toy.id}`);
+                } else {
+                    randomDate = randomFutureDate();
+                    localStorage.setItem(`endTime-${toy.id}`, randomDate);
+                }
+    
                 return `
                     <div class="col-md-4 mb-4">
                         <div class="card">
@@ -51,31 +84,32 @@
                                 <p class="card-text">${toy.description}</p>
                                 <p>Starting Bid: $${toy.startingBid}</p>
                                 <p>Current Bid: $${toy.currentBid}</p>
-                                <p>Auction Ends: ${new Date(toy.auctionEndTime).toLocaleString()}</p>
+                                <p class="countdown" data-endtime="${randomDate}"></p>
                             </div>
                         </div>
                     </div>
                 `;
             }
     
-            // Select the container where the toys will be displayed
             const container = document.getElementById('toyListings');
     
-            // Fetch the JSON data from the same directory
             fetch('toyslisting.json')
                 .then(response => response.json())
                 .then(toyData => {
-                    // Loop through the first 20 toys and add them to the container
                     toyData.slice(0, 30).forEach(toy => {
                         container.innerHTML += createToyHtml(toy);
                     });
+                    updateCountdown();
                 })
                 .catch(error => {
                     console.error('Error loading toy data:', error);
                     container.innerHTML = '<p>Error loading toy listings.</p>';
                 });
         });
+    
+        setInterval(updateCountdown, 1000);
     </script>
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
