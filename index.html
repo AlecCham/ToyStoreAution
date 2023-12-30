@@ -41,29 +41,31 @@
     <script>
         function randomFutureDate() {
             let now = new Date();
-            let randomMinutes = Math.random() > 0.5 ? Math.floor(Math.random() * 30) : Math.floor(Math.random() * (60 * 24 * 30)); // Some dates within 30 minutes, others within 30 days
-            let futureDate = new Date(now.getTime() + randomMinutes * 60000);
+            let randomHours = Math.floor(Math.random() * 47 + 1); // 1 to 48 hours
+            let futureDate = new Date(now.getTime() + randomHours * 60 * 60000);
             return futureDate.toISOString();
         }
-            
-            function updateCountdown() {
+    
+        function updateCountdown() {
+            let now = new Date();
             document.querySelectorAll('.countdown').forEach(element => {
-                let endTime = new Date(element.getAttribute('data-endtime'));
-                let now = new Date();
+                let itemId = element.getAttribute('data-itemid');
+                let endTime = new Date(localStorage.getItem(`endTime-${itemId}`));
                 let distance = endTime - now;
-
-                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    
                 if (distance < 0) {
+                    if (!element.classList.contains('relisted')) {
+                        let newEndTime = randomFutureDate();
+                        localStorage.setItem(`endTime-${itemId}`, newEndTime);
+                        element.classList.add('relisted');
+                    }
                     element.innerHTML = "RELISTED";
                     element.style.color = "green";
-                    // Reset the countdown for another period (e.g., 30 minutes)
-                    let newEndTime = new Date(now.getTime() + 30 * 60000); // 30 minutes from now
-                    element.setAttribute('data-endtime', newEndTime.toISOString());
                 } else {
+                    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
                     element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
                     if (days < 1) {
                         element.classList.add('blink');
@@ -73,7 +75,6 @@
                 }
             });
         }
-
     
         document.addEventListener("DOMContentLoaded", function() {
             function createToyHtml(toy) {
@@ -85,20 +86,21 @@
                     localStorage.setItem(`endTime-${toy.id}`, randomDate);
                 }
     
-                return `
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="pics/${toy.image}" class="card-img-top" alt="${toy.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${toy.name}</h5>
-                                <p class="card-text">${toy.description}</p>
-                                <p>Starting Bid: $${toy.startingBid}</p>
-                                <p>Current Bid: $${toy.currentBid}</p>
-                                <p class="countdown" data-endtime="${randomDate}"></p>
-                            </div>
+                let toyDiv = document.createElement('div');
+                toyDiv.className = 'col-md-4 mb-4';
+                toyDiv.innerHTML = `
+                    <div class="card">
+                        <img src="pics/${toy.image}" class="card-img-top" alt="${toy.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${toy.name}</h5>
+                            <p class="card-text">${toy.description}</p>
+                            <p>Starting Bid: $${toy.startingBid}</p>
+                            <p>Current Bid: $${toy.currentBid}</p>
+                            <p class="countdown" data-itemid="${toy.id}" data-endtime="${randomDate}"></p>
                         </div>
                     </div>
                 `;
+                return toyDiv;
             }
     
             const container = document.getElementById('toyListings');
@@ -106,8 +108,8 @@
             fetch('toyslisting.json')
                 .then(response => response.json())
                 .then(toyData => {
-                    toyData.slice(0, 30).forEach(toy => {
-                        container.innerHTML += createToyHtml(toy);
+                    toyData.forEach(toy => {
+                        container.appendChild(createToyHtml(toy));
                     });
                     updateCountdown();
                 })
@@ -121,7 +123,6 @@
     </script>
     
     
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
