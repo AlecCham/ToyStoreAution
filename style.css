@@ -9,3 +9,11 @@ body {
 .footer a:hover {
     color: #ffe135; /* Bright color for hover state */
 }
+@keyframes blink {
+    50% { opacity: 0; }
+  }
+  
+  .blink {
+    animation: blink 1s step-start 0s infinite;
+  }
+  

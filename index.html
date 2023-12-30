@@ -45,25 +45,35 @@
             let futureDate = new Date(now.getTime() + randomMinutes * 60000);
             return futureDate.toISOString();
         }
-    
-        function updateCountdown() {
+            
+            function updateCountdown() {
             document.querySelectorAll('.countdown').forEach(element => {
                 let endTime = new Date(element.getAttribute('data-endtime'));
                 let now = new Date();
                 let distance = endTime - now;
-    
+
                 let days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-                element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    
+
                 if (distance < 0) {
-                    element.innerHTML = "EXPIRED";
+                    element.innerHTML = "RELISTED";
+                    element.style.color = "green";
+                    // Reset the countdown for another period (e.g., 30 minutes)
+                    let newEndTime = new Date(now.getTime() + 30 * 60000); // 30 minutes from now
+                    element.setAttribute('data-endtime', newEndTime.toISOString());
+                } else {
+                    element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                    if (days < 1) {
+                        element.classList.add('blink');
+                    } else {
+                        element.classList.remove('blink');
+                    }
                 }
             });
         }
+
     
         document.addEventListener("DOMContentLoaded", function() {
             function createToyHtml(toy) {
@@ -109,6 +119,7 @@
     
         setInterval(updateCountdown, 1000);
     </script>
+    
     
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
